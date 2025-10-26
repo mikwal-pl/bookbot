@@ -6,12 +6,17 @@ def count_words(filepath):
 
 def count_characters(filepath):
     with open(filepath) as f:
+        char_list = []
         char_dict = {}
+        char_set = set()
         file_cont = str.lower(f.read())
         for char in file_cont:
-            if char not in char_dict:
+            if char not in char_set:
+                char_set.add(char)
                 char_dict[char] = 1
             else:
                 char_dict[char] += 1
-        return char_dict
-
+        keys = char_dict.keys()
+        for k in keys:
+            char_list.append({"character": k, "number": char_dict[k]})
+        return char_list
