@@ -6,8 +6,17 @@ def main():
     print(f"Found {number_words} total words")
 
 def main2():
-    test = count_characters("books/frankenstein.txt")
-    print(test)
+    number_char = count_characters("books/frankenstein.txt")
+    for i in range(0, len(number_char)-1):
+        if number_char[i]["character"].isalpha():
+            print(f"{number_char[i]["character"]}: {number_char[i]["number"]}")
+    #print(number_char)
 
+
+print("============ BOOKBOT ============")
+print("Analyzing book found at books/frankenstein.txt...")
+print("----------- Word Count ----------")
+main()
+print("--------- Character Count -------")
 main2()
-
+print("============= END ===============")

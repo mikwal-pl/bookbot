@@ -4,6 +4,9 @@ def count_words(filepath):
         word_count = len(str.split(file_contents))
     return word_count
 
+def sort(items):
+    return items["number"]
+
 def count_characters(filepath):
     with open(filepath) as f:
         char_list = []
@@ -19,4 +22,5 @@ def count_characters(filepath):
         keys = char_dict.keys()
         for k in keys:
             char_list.append({"character": k, "number": char_dict[k]})
+        char_list.sort(reverse=True, key=sort)
         return char_list
