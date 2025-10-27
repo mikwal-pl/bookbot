@@ -9,7 +9,6 @@ def sort(items):
 
 def count_characters(filepath):
     with open(filepath) as f:
-        char_list = []
         char_dict = {}
         char_set = set()
         file_cont = str.lower(f.read())
@@ -19,8 +18,6 @@ def count_characters(filepath):
                 char_dict[char] = 1
             else:
                 char_dict[char] += 1
-        keys = char_dict.keys()
-        for k in keys:
-            char_list.append({"character": k, "number": char_dict[k]})
+        char_list = [{"character": k, "number": n} for k, n in char_dict.items()]
         char_list.sort(reverse=True, key=sort)
         return char_list
